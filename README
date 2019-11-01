@@ -1,0 +1,37 @@
+#替换Maven的Setting.xml
+<mirrors>
+<!-- maven官方镜像 -->
+<mirror>
+<id>mirrorId</id>
+<mirrorOf>central</mirrorOf>
+<name>Human Readable Name </name>
+<url>http://repo1.maven.org/maven2/</url>
+</mirror>
+
+<!-- 又一个镜像 -->
+<mirror>
+<id>alimaven</id>
+<name>aliyun maven</name>
+<url>http://central.maven.org/maven2</url>
+<mirrorOf>central</mirrorOf>
+</mirror>
+
+<!-- 阿里云镜像2 -->
+<mirror>
+<id>alimaven</id>
+<name>aliyun maven</name>
+<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+<mirrorOf>central</mirrorOf>
+</mirror>
+
+<!-- junit镜像地址 -->
+<mirror>
+<id>junit</id>
+<name>junit Address/</name>
+<url>http://jcenter.bintray.com/</url>
+<mirrorOf>central</mirrorOf>
+</mirror>
+</mirrors>
+
+
+#
