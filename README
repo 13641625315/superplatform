@@ -1,3 +1,13 @@
+#Set up Project
+eureka-server实现高可，peer1和peer2双节点
+需要修改本机的hosts文件
+Windows:C:\Windows\System32\drivers\etv
+Mac/Linux:/etc
+127.0.0.1 peer1 peer2
+
+如需idea启动双节点，配置启动文件
+-spring.profiles.active=peer1
+-spring.profiles.active=peer2
+
 #How to use Actuator
 https://www.jianshu.com/p/d5943e303a1f
-

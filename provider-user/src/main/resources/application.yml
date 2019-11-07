@@ -15,9 +15,11 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://admin:nimda@peer1:8761/eureka/,http://admin:nimda@peer2:8762/eureka/
   instance:
     prefer-ip-address: true
+    metadata-map:
+      my-metadata: 测试元数据 #key和value随便填写
 logging: #指定日志级别让hibernate打印sql
   level:
     root: INFO
