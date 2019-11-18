@@ -2,6 +2,12 @@ package com.cris.superplatform.consumer.shop.pojo;
 
 import java.math.BigDecimal;
 
+/**
+ * User
+ *
+ * @author cris.zhu
+ * @date 2019/11/18
+ */
 public class User {
     private Long id;
     private String username;

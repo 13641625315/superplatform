@@ -3,6 +3,12 @@ package com.cris.superplatform.provider.user.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+/**
+ * User
+ *
+ * @author cris.zhu
+ * @date 2019/11/18
+ */
 @Entity
 public class User {
     @Id
