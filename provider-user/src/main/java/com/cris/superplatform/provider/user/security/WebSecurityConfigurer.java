@@ -1,9 +1,6 @@
 package com.cris.superplatform.provider.user.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -35,30 +31,16 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
-
-    @Autowired
-    private CustomUserDetailsServiceImpl userDetailsServiceImpl;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(this.userDetailsServiceImpl).passwordEncoder(this.passwordEncoder());
-    }
-
     @Component
     class CustomUserDetailsServiceImpl implements UserDetailsService {
-        private final String USER_USERNAME = "user";
         private final String ADMIN_USERNAME = "admin";
+        private final String ADMIN_PASSWORD = "admin";
+        private final String ADMIN_ROLE = "admin";
 
         @Override
         public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-            if (USER_USERNAME.equals(username)) {
-                return new SecurityUser("user", "password1", "user-role");
-            } else if (ADMIN_USERNAME.equals(username)) {
-                return new SecurityUser("admin", "password2", "admin-role");
+            if (ADMIN_USERNAME.equals(username)) {
+                return new SecurityUser(ADMIN_USERNAME, PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(ADMIN_PASSWORD), ADMIN_ROLE);
             } else {
                 return null;
             }
@@ -83,6 +65,10 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
             this.username = username;
             this.password = password;
             this.role = role;
+            this.isAccountNonExpired = true;
+            this.isAccountNonLocked = true;
+            this.isCredentialsNonExpired = true;
+            this.isEnabled = true;
         }
 
         @Override

@@ -9,5 +9,24 @@ Mac/Linux:/etc
 -spring.profiles.active=peer1
 -spring.profiles.active=peer2
 
-#How to use Actuator
-https://www.jianshu.com/p/d5943e303a1f
+#Learn Source
+#Spring Cloud发布记录
+https://github.com/spring-cloud/spring-cloud-release/releases
+#Spring Cloud版本演进计划
+https://github.com/spring-cloud/spring-cloud-release/milestones
+#Spring Boot 2.1.5
+https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/
+#AWS Region&Availability Zone
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+#Eureka Wiki
+https://github.com/Netflix/eureka/wiki
+#Eureka vs ZooKeeper
+http://dockone.io/article/78
+#Eureka不注销任何微服务的讨论
+http://stackoverflow.com/questions/32616329/eureka-never-unregisters-a-service
+#Eureka健康检查
+https://jmnarloch.wordpress.com/2015/09/02/spring-cloud-fixing-eureka-application-status/
+#@HystrixCommand使用方法
+https://github.com/Netflix/Hystrix/tree/master/hystrix-contrib/hystrix-javanica#configuration
+#Hystrix配置属性
+http://github.com/Netflix/Hystrix/wiki/Configuration

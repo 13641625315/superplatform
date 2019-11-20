@@ -1,6 +1,7 @@
 package com.cris.superplatform.consumer.shop.feign.client;
 
 import com.cris.superplatform.consumer.shop.pojo.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author cris.zhu
  * @date 2019/11/18
  */
-@FeignClient(name = "${user.userService.instance}")
+@FeignClient(value = "${user.userService.instance}")
 public interface UserFeignClient {
 
     /**

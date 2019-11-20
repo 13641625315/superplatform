@@ -3,6 +3,9 @@ server:
 user:
   userService:
     instance: provider-user
+    basicAuth:
+      username: admin
+      password: admin
 spring:
   application:
     name: consumer-shop
@@ -14,3 +17,12 @@ eureka:
       enabled: true
   instance:
     prefer-ip-address: true
+feign:
+  client:
+    config:
+      provider-user:
+        loggerLevel: basic
+
+logging:
+  level:
+    com.cris.superplatform.consumer.shop.feign.client.UserFeignClient: DEBUG
