@@ -22,7 +22,8 @@ feign:
     config:
       provider-user:
         loggerLevel: basic
-
+  hystrix:
+    enabled: true
 logging:
   level:
     com.cris.superplatform.consumer.shop.feign.client.UserFeignClient: DEBUG

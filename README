@@ -9,6 +9,28 @@ Mac/Linux:/etc
 -spring.profiles.active=peer1
 -spring.profiles.active=peer2
 
+
+#Tips
+/*
+只要Hystrix在项目的classpath中，Feign就会使用断路器包裹Feign客户端的所有方法，有时候这样并不好。
+可以使用Feign自定义配置为指定客户端禁用Hystrix
+@Configuration
+public class FeignDisableHystrixConfiguration {
+    @Bean
+    @Scope("prototype")
+    public Feign.Builder feignBuilder(){
+        return Feign.builder
+    }
+}
+
+@FeignClient(name = "user", configuration = FeignDisableHystrixConfiguration.class)
+public interface UserFeignClient{
+    //...
+}
+
+全局禁用可通过配置feign.hystrix.enabled = false
+*/
+
 #Learn Source
 #Spring Cloud发布记录
 https://github.com/spring-cloud/spring-cloud-release/releases
