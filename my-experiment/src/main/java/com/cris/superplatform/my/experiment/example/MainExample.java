@@ -13,9 +13,19 @@ import java.util.Optional;
 public class MainExample {
 
     //Optional Judgement Example
-    public void optionalJudgement() {
-        UserModelExample user = null;
-        Optional<UserModelExample> userOptional = Optional.ofNullable(user);
-        userOptional.map(userModelExample -> userModelExample.getId());
+    public static void optionalJudgementCase() {
+        UserModelExample user1 = null;
+        UserModelExample user2 = new UserModelExample();
+        user2.setId("user2");
+        UserModelExample user3 = new UserModelExample();
+        user3.setId("user3");
+        Optional<UserModelExample> userOptional = Optional.ofNullable(user3);
+        System.out.println(userOptional.map(userModelExample -> userModelExample.getId()).orElse(user2.getId()));
+    }
+
+    public static void annotationCase() throws ClassNotFoundException {
+        ParseAnnotationExample.parseTypeAnnotation();
+        ParseAnnotationExample.parseMethodAnnotation();
+        ParseAnnotationExample.parseConstructAnnotation();
     }
 }

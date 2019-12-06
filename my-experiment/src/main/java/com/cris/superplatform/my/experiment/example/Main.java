@@ -6,8 +6,12 @@ package com.cris.superplatform.my.experiment.example;
  * @author cris.zhu
  * @date 2019/12/1
  */
-public class Mian {
+public class Main {
     public static void main(String[] args) {
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        try {
+            MainExample.annotationCase();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
