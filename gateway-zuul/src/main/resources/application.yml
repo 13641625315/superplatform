@@ -1,8 +1,8 @@
 server:
-  port: 8031
+  port: 8040
 spring:
   application:
-    name: turbine-service
+    name: gateway-zuul
 eureka:
   client:
     serviceUrl:
@@ -11,7 +11,3 @@ eureka:
       enabled: true
   instance:
     prefer-ip-address: true
-turbine:
-  appConfig: gateway-zuul
-  clusterNameExpression: "'default'"
-  instanceUrlSuffix: /hystrix.stream
