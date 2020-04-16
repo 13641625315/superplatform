@@ -1,7 +1,7 @@
 #Set up Project
 eureka-server实现高可，peer1和peer2双节点
 需要修改本机的hosts文件
-Windows:C:\Windows\System32\drivers\etv
+Windows:C:\Windows\System32\drivers\etc
 Mac/Linux:/etc
 127.0.0.1 peer1 peer2
 
